@@ -31,7 +31,7 @@ export default class Movie extends React.Component {
                         {this.state.rating}
                     </div>
                 </Card.Body>
-                <Card.Footer>
+                <Card.Footer> {/*inputted reviews should appear above reviewform, maybe even in card body?*/}
                     {/* <Stars /> */}
                     {/* <ReviewList /> */}
                     <ReviewForm />
