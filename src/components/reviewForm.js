@@ -1,4 +1,6 @@
+//adds review to list
 import React from 'react';
+import ReviewList from './reviewList';
 
 export default class ReviewForm extends React.Component {
     constructor(props) {
@@ -16,10 +18,11 @@ export default class ReviewForm extends React.Component {
         // console.log('check handleChange runs') it runs and prints to console for every letter entered wtf?
     }
 
-    handleSubmit = () => {
-        this.setState({
-            reviews: [...this.state.reviews, this.state.indReview]
+    handleSubmit = () => { //something is updating one entry behind
+        this.setState({ 
+            reviews: [...this.state.reviews, this.state.indReview] 
         })
+        console.log(this.state.reviews);
         this.setState({
             indReview: '', //doesn't reset textbox - does it need to be a form?
         })
@@ -29,9 +32,13 @@ export default class ReviewForm extends React.Component {
     render() {
         return ( //TODO: check if form allows input box reset; will have to add prevent default to submit
             <div>
+            <ReviewList enteredReview={this.state.reviews} />
+            <div>
                 <h3>Review Form</h3>
                 <input type='textarea' placeholder='Enter your review here' rows={3} onChange={this.handleChange}></input>
                 <button onClick={this.handleSubmit}>Submit Review</button>
+            </div>
+            
             </div>
         )
     }
