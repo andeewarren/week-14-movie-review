@@ -16,9 +16,11 @@ export default class ReviewList extends React.Component {
     render() {
     return(
         <div>
-            {this.reviews.map((review) => (
-                <span>{review}</span>
-            ))}
+            {this.reviews.map((review, i) => 
+                <div key={i}>
+                    <p>User Review: {review}</p>
+                    </div>
+            )}
 
         </div>
     )
