@@ -1,6 +1,7 @@
 //adds review to list
 import React from 'react';
 import ReviewList from './reviewList';
+import { Form } from 'react-bootstrap';
 
 export default class ReviewForm extends React.Component {
     constructor(props) {
@@ -18,14 +19,16 @@ export default class ReviewForm extends React.Component {
         // console.log('check handleChange runs') it runs and prints to console for every letter entered wtf?
     }
 
-    handleSubmit = () => { //something is updating one entry behind
+    handleSubmit = (event) => { //something is updating one entry behind
+        event.preventDefault();
         this.setState({ 
             reviews: [...this.state.reviews, this.state.indReview] 
-        })
+        });
         console.log(this.state.reviews);
+        
         this.setState({
             indReview: '', //doesn't reset textbox - does it need to be a form?
-        })
+        });
         console.log('check submit ran') //runs
     }
 
@@ -34,9 +37,21 @@ export default class ReviewForm extends React.Component {
             <div>
             <ReviewList enteredReview={this.state.reviews} />
             <div>
-                <h3>Review Form</h3>
-                <input type='textarea' placeholder='Enter your review here' rows={3} onChange={this.handleChange}></input>
-                <button onClick={this.handleSubmit}>Submit Review</button>
+                <Form className="reviewForm">
+                    <Form.Group>
+                        <Form.Label></Form.Label>
+                        <Form.Control as="textarea" placeholder="Share your thoughts here" rows={3} value={this.state.indReview} onChange={this.handleChange}/>
+                    </Form.Group>
+                    <div>
+                        <button onClick={this.handleSubmit}>Submit Review</button>
+                    </div>
+                </Form>
+
+
+
+                {/* <h3>Review Form</h3>
+                <input type='textarea' placeholder='Enter your review here' rows={3} onChange={this.handleChange}></input> */}
+                
             </div>
             
             </div>

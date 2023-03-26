@@ -1,6 +1,6 @@
 import React from 'react';
 // import ReviewList from './reviewList';
-// import Stars from './Stars';
+// import Stars from './stars';
 import Card from 'react-bootstrap/Card';
 import ReviewForm from './reviewForm';
 
@@ -21,7 +21,7 @@ export default class Movie extends React.Component {
     }
     render() {
         return (
-            <Card style={{width: '18rem'}}>
+            <Card className="row-cols-4" style={{width: '18rem'}}>
                 <Card.Img variant="top" src={this.state.image} height="200px" />
                 <Card.Body>
                     <Card.Title>{this.state.title}</Card.Title>
@@ -33,7 +33,6 @@ export default class Movie extends React.Component {
                 </Card.Body>
                 <Card.Footer> {/*inputted reviews should appear above reviewform, maybe even in card body?*/}
                     {/* <Stars /> */}
-                    {/* <ReviewList /> */}
                     <ReviewForm />
                 </Card.Footer>
             </Card>

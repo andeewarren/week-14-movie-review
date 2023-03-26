@@ -1,26 +1,25 @@
 //lists all reviews
 //array of reviews added to by review form
 import React from "react";
-// import ReviewForm from "./reviewForm";
+// import Stars from "./stars";
 
 export default class ReviewList extends React.Component {
     constructor(props) {
         super(props);
-        // console.log(props);
-        this.reviews = props.enteredReview;
-        console.log(this.reviews);
     }
     
     
 
     render() {
+
     return(
         <div>
-            {this.reviews.map((review, i) => 
+            {this.props.enteredReview.map((review, i) => 
                 <div key={i}>
                     <p>User Review: {review}</p>
                     </div>
             )}
+            {/* <Stars /> */}
 
         </div>
     )
