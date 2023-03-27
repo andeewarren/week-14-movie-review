@@ -2,6 +2,7 @@
 import React from 'react';
 import ReviewList from './reviewList';
 import { Form } from 'react-bootstrap';
+import Stars from './stars';
 
 export default class ReviewForm extends React.Component {
     constructor(props) {
@@ -22,7 +23,7 @@ export default class ReviewForm extends React.Component {
     handleSubmit = (event) => { //something is updating one entry behind
         event.preventDefault();
         this.setState({ 
-            reviews: [...this.state.reviews, this.state.indReview] 
+            reviews: [...this.state.reviews, this.state.indReview], 
         });
         console.log(this.state.reviews);
         
@@ -35,12 +36,15 @@ export default class ReviewForm extends React.Component {
     render() {
         return ( //TODO: check if form allows input box reset; will have to add prevent default to submit
             <div>
-            <ReviewList enteredReview={this.state.reviews} />
+            <ReviewList enteredReview={this.state.reviews} enteredStar={this.state.starRate} />
             <div>
                 <Form className="reviewForm">
                     <Form.Group>
                         <Form.Label></Form.Label>
                         <Form.Control as="textarea" placeholder="Share your thoughts here" rows={3} value={this.state.indReview} onChange={this.handleChange}/>
+                    </Form.Group>
+                    <Form.Group>
+                        <Stars name="simple-controlled" />
                     </Form.Group>
                     <div>
                         <button onClick={this.handleSubmit}>Submit Review</button>
