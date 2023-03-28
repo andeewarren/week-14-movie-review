@@ -21,19 +21,20 @@ export default class Movie extends React.Component {
     }
     render() {
         return (
-            <Card className="row-cols-4" style={{width: '18rem'}}>
-                <Card.Img variant="top" src={this.state.image} height="200px" />
+            
+            <Card className="movieCard">
+                <Card.Img className="image" variant="top" src={this.state.image} height="200px" />
                 <Card.Body>
-                    <Card.Title>{this.state.title}</Card.Title>
+                    <Card.Title id='title'><br />{this.state.title}</Card.Title>
                     <div className="cardBody">
-                        {this.state.synopsis}
+                        <br />Rated {this.state.rating} <br />
+                        <br />{this.state.synopsis}
                         <br />
-                        {this.state.rating}
                     </div>
                 </Card.Body>
                 <Card.Footer> {/*inputted reviews should appear above reviewform, maybe even in card body?*/}
                     {/* <Stars /> */}
-                    <ReviewForm />
+                    <br /><ReviewForm />
                 </Card.Footer>
             </Card>
         )

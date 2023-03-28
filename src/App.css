@@ -5,3 +5,17 @@
 body {
   justify-items: center;
 }
+
+.movieCard {
+  
+
+  padding: 50px;
+  width: 25%;
+}
+
+
+#title {
+  text-align: center;
+  font-weight: bold;
+  font-size: large;
+}
